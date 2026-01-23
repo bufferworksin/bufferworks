@@ -9,30 +9,39 @@ export default function Services() {
     const cardsRef = useRef(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
         const ctx = gsap.context(() => {
-            gsap.from(titleRef.current, {
-                scrollTrigger: {
-                    trigger: titleRef.current,
-                    start: "top 80%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
+            gsap.fromTo(titleRef.current,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: titleRef.current,
+                        start: "top 85%",
+                    }
+                }
+            );
 
             // Targeted animation for better reliability
-            gsap.from(".service-card", {
-                scrollTrigger: {
-                    trigger: cardsRef.current,
-                    start: "top 85%", // Trigger slightly earlier
-                },
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power3.out"
-            });
+            gsap.fromTo(".service-card",
+                { y: 60, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6,
+                    stagger: 0.05,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: cardsRef.current,
+                        start: "top 110%", // Trigger before entering viewport
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
         }, sectionRef);
 
         return () => ctx.revert();
