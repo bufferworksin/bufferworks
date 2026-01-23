@@ -7,9 +7,9 @@ export default function Footer() {
                     <p className="text-zinc-500 text-sm mt-2">© {new Date().getFullYear()} All rights reserved.</p>
                 </div>
                 <div className="flex gap-8">
-                    <a href="#" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
-                    <a href="#" className="text-zinc-400 hover:text-white transition-colors">LinkedIn</a>
-                    <a href="#" className="text-zinc-400 hover:text-white transition-colors">Twitter</a>
+                    <a href="https://www.instagram.com/bufferworks.in" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/company/bufferworks/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://github.com/bufferworksin" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">GitHub</a>
                 </div>
             </div>
         </footer>

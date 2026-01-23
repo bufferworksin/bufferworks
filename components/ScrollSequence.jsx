@@ -88,7 +88,7 @@ export default function ScrollSequence() {
             <canvas ref={canvasRef} className="block w-full h-full object-cover" />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 {/* Optional Overlay Content */}
-                <h1 className="text-5xl md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 opacity-90 mix-blend-difference z-10">
+                <h1 className="text-[3.4rem] md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 opacity-90 mix-blend-difference z-10 scale-y-150 transform-gpu">
                     BUFFERWORKS
                 </h1>
             </div>

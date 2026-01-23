@@ -76,7 +76,7 @@ export default function Work() {
     return (
         <section ref={sectionRef} id="work" className="bg-zinc-950 text-white py-20 md:py-32 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-20">
                     <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-600">
                         Selected Work
                     </h2>
