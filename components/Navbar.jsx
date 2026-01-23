@@ -57,7 +57,7 @@ export default function Navbar() {
                 } else {
                     // Contract
                     gsap.to(navRef.current, {
-                        width: 140,
+                        width: 160,
                         height: 48,
                         borderRadius: "0 0 2rem 2rem",
                         duration: 0.6,
@@ -106,7 +106,7 @@ export default function Navbar() {
                 } else {
                     // Contract
                     gsap.to(navRef.current, {
-                        width: 140,
+                        width: 160,
                         height: 48,
                         borderRadius: "0 0 2rem 2rem",
                         duration: 0.5,
@@ -128,11 +128,17 @@ export default function Navbar() {
         <div className="fixed top-0 w-full flex justify-center z-50 pointer-events-none">
             <nav
                 ref={navRef}
-                onMouseEnter={() => !isMobileMenuOpen && setIsHovered(true)}
-                onMouseLeave={() => !isMobileMenuOpen && setIsHovered(false)}
+                onMouseEnter={() => window.innerWidth >= 768 && setIsHovered(true)}
+                onMouseLeave={() => window.innerWidth >= 768 && setIsHovered(false)}
+                onClick={() => {
+                    // Toggle menu on mobile click (if not already handled by child elements)
+                    if (window.innerWidth < 768) {
+                        setIsMobileMenuOpen(!isMobileMenuOpen);
+                    }
+                }}
                 className="bg-black pointer-events-auto border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)] 
-                           rounded-b-[2rem] overflow-hidden flex flex-col items-center relative"
-                style={{ width: 140, height: 48 }}
+                           rounded-b-[2rem] overflow-hidden flex flex-col items-center relative cursor-pointer md:cursor-default"
+                style={{ width: 160, height: 48 }}
             >
                 {/* Compact Content (Default State) */}
                 <div className="nav-compact absolute inset-0 flex items-center justify-center gap-3 w-full h-[48px] z-20">

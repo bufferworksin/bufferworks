@@ -74,7 +74,7 @@ export default function Work() {
     };
 
     return (
-        <section ref={sectionRef} id="work" className="bg-zinc-950 text-white py-32 px-6 md:px-12">
+        <section ref={sectionRef} id="work" className="bg-zinc-950 text-white py-20 md:py-32 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20">
                     <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-600">
@@ -100,7 +100,7 @@ export default function Work() {
                                 {/* Image Container */}
                                 <div
                                     className={`relative rounded-2xl overflow-hidden mb-6 md:mb-0 transition-all duration-500
-                                    ${isMobile ? 'w-full md:w-1/4 aspect-[9/16] shadow-2xl' : 'w-full aspect-[4/3]'}
+                                    ${isMobile ? 'w-1/2 md:w-1/4 aspect-[9/16] shadow-2xl' : 'w-full aspect-[4/3]'}
                                     `}
                                 >
                                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />

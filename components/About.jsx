@@ -24,9 +24,9 @@ export default function About() {
     }, []);
 
     return (
-        <section ref={containerRef} className="bg-black text-white py-24 px-6 md:px-12 flex flex-col md:flex-row items-center gap-12">
+        <section ref={containerRef} className="bg-black text-white py-16 md:py-24 px-6 md:px-12 flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
-                <h2 ref={textRef} className="text-4xl md:text-6xl font-bold leading-tight">
+                <h2 ref={textRef} className="text-3xl md:text-6xl font-bold leading-tight">
                     We craft digital <span className="text-zinc-500">experiences</span> that define the future.
                 </h2>
             </div>

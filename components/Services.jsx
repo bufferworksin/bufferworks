@@ -59,10 +59,10 @@ export default function Services() {
     ];
 
     return (
-        <section ref={sectionRef} id="services" className="min-h-screen bg-black text-white py-32 px-6 md:px-12">
+        <section ref={sectionRef} id="services" className="min-h-screen bg-black text-white py-20 md:py-32 px-6 md:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <div className="text-center mb-20">
-                    <h2 ref={titleRef} className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 inline-block pb-2">
+                    <h2 ref={titleRef} className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 inline-block pb-2">
                         Our Services
                     </h2>
                     <p className="text-zinc-400 mt-6 text-xl max-w-2xl mx-auto">
@@ -70,7 +70,7 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     {services.map((s, i) => (
                         <div key={i} className="service-card group relative p-8 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-white/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
                             {/* Hover Gradient Background */}
