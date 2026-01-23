@@ -1,5 +1,5 @@
 {
-  "name": "bufferstays",
+  "name": "bufferworks",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@studio-freight/react-lenis": "^0.0.47",
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.17",
     "next": "16.1.4",
     "react": "19.2.3",
     "react-dom": "19.2.3"
