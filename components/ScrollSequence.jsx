@@ -20,7 +20,7 @@ export default function ScrollSequence() {
 
         // Function to get image path
         const getImagePath = (index) =>
-            `/transitions2/Smooth_transition_from_1080p_202601231301_${index.toString().padStart(3, "0")}.png`;
+            `/transitions2-optimized/Smooth_transition_from_1080p_202601231301_${index.toString().padStart(3, "0")}.webp`;
 
         // Preload images
         const images = [];
