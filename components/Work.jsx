@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Work() {
     const sectionRef = useRef(null);
@@ -14,10 +15,11 @@ export default function Work() {
             id: 1,
             title: "KwikStays",
             description: "Hotel Booking Platform",
-            type: "web", // Changed to mobile based on "screenshot" comment, user can verify
+            type: "web",
             image: "/kwikstays.png",
             tags: ["Hotel", "Booking", "Platform"],
-            year: "2026"
+            year: "2026",
+            link: "https://kwikstays.in" // Placeholder
         },
         {
             id: 2,
@@ -26,7 +28,8 @@ export default function Work() {
             type: "web",
             image: "/goatourwala.png",
             tags: ["Tourism", "Booking", "Platform"],
-            year: "2025"
+            year: "2025",
+            link: "https://goatourwala.com"
         },
         {
             id: 3,
@@ -35,7 +38,8 @@ export default function Work() {
             type: "mobile",
             image: "/idt.jpeg",
             tags: ["Event", "Management", "Platform"],
-            year: "2026"
+            year: "2026",
+            link: "https://idteventmanagement.online"
         },
         {
             id: 4,
@@ -44,7 +48,8 @@ export default function Work() {
             type: "mobile",
             image: "/poddarjewellar.jpeg",
             tags: ["Jewellery", "Store", "Platform"],
-            year: "2024"
+            year: "2024",
+            link: "https://poddarjewellers.in"
         },
         {
             id: 5,
@@ -53,7 +58,8 @@ export default function Work() {
             type: "mobile",
             image: "/sebooking.png",
             tags: ["Appointment", "Booking", "Platform"],
-            year: "2025"
+            year: "2025",
+            link: "https://samriddhienterprises.in"
         },
     ];
 
@@ -89,7 +95,7 @@ export default function Work() {
                     delay: 0
                 }
             });
-        });
+        }, sectionRef);
 
         return () => ctx.revert();
     }, [sectionRef]);
@@ -119,7 +125,8 @@ export default function Work() {
                         const isEven = i % 2 === 0;
 
                         return (
-                            <div
+                            <Link
+                                href={p.link}
                                 key={p.id}
                                 ref={addToRefs}
                                 className={`group cursor-pointer w-full ${isMobile ? 'md:col-span-2 flex flex-col md:flex-row gap-12 justify-center items-center' : 'md:col-span-1'} ${isMobile && !isEven ? 'md:flex-row-reverse' : ''}`}
@@ -168,7 +175,7 @@ export default function Work() {
                                         </div>
                                     )}
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>
