@@ -18,7 +18,17 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className={`${outfit.variable} antialiased bg-black text-white`}>
         <Navbar />
-        <ReactLenis root>{children}</ReactLenis>
+        <ReactLenis
+          root
+          options={{
+            duration: 1.5,
+            smoothWheel: true,
+            wheelMultiplier: 0.8,
+            touchMultiplier: 0.8,
+          }}
+        >
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );

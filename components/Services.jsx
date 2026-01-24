@@ -46,7 +46,7 @@ export default function Services() {
             // Resistance/Pinning Effect
             ScrollTrigger.create({
                 trigger: sectionRef.current,
-                start: "top -10%", // Adjust start to reduce gap
+                start: "top -2%", // Earlier resistance
                 end: "+=400", // Distance of resistance
                 pin: true,
                 pinSpacing: true,

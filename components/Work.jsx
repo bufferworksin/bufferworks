@@ -45,7 +45,16 @@ export default function Work() {
             image: "/poddarjewellar.jpeg",
             tags: ["Jewellery", "Store", "Platform"],
             year: "2024"
-        }
+        },
+        {
+            id: 5,
+            title: "Samriddhi Enterprises Booking",
+            description: "Samriddhi Enterprises Booking is an online appointment booking for medical services",
+            type: "mobile",
+            image: "/sebooking.png",
+            tags: ["Appointment", "Booking", "Platform"],
+            year: "2025"
+        },
     ];
 
     useEffect(() => {
@@ -67,7 +76,7 @@ export default function Work() {
             // Resistance/Pinning Effect
             ScrollTrigger.create({
                 trigger: sectionRef.current,
-                start: "top -10%", // Pin when 10% of section has scrolled past top (reducing gap)
+                start: "top -2%", // Earlier resistance as requested, close to top
                 end: "+=400", // Distance of resistance
                 pin: true,
                 pinSpacing: true,
