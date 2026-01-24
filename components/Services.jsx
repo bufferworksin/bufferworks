@@ -42,6 +42,23 @@ export default function Services() {
                     }
                 }
             );
+
+            // Resistance/Pinning Effect
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: "top -10%", // Adjust start to reduce gap
+                end: "+=400", // Distance of resistance
+                pin: true,
+                pinSpacing: true,
+                anticipatePin: 1,
+                // Snap to the pinned position (resistance point) smoothly
+                snap: {
+                    snapTo: 0,
+                    duration: { min: 0.1, max: 0.6 },
+                    ease: "power2.out",
+                    delay: 0
+                }
+            });
         }, sectionRef);
 
         return () => ctx.revert();

@@ -24,7 +24,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <section ref={containerRef} className="bg-black text-white py-20 md:py-32 px-6 md:px-12 text-center">
+        <section ref={containerRef} id="contact" className="bg-black text-white py-20 md:py-32 px-6 md:px-12 text-center">
             <h2 className="contact-anim text-4xl md:text-8xl font-bold mb-8">Ready to start?</h2>
             <p className="contact-anim text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto">
                 Let's build something extraordinary together. Reach out to us for a consultation.

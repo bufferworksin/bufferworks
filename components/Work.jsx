@@ -63,9 +63,27 @@ export default function Work() {
                     ease: "power3.out",
                 });
             });
-        }, sectionRef);
+
+            // Resistance/Pinning Effect
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: "top -10%", // Pin when 10% of section has scrolled past top (reducing gap)
+                end: "+=400", // Distance of resistance
+                pin: true,
+                pinSpacing: true,
+                anticipatePin: 1,
+                // Snap to the pinned position (resistance point) smoothly
+                snap: {
+                    snapTo: 0,
+                    duration: { min: 0.1, max: 0.6 },
+                    ease: "power2.out",
+                    delay: 0
+                }
+            });
+        });
+
         return () => ctx.revert();
-    }, []);
+    }, [sectionRef]);
 
     const addToRefs = (el) => {
         if (el && !itemsRef.current.includes(el)) {
