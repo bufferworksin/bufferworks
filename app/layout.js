@@ -3,6 +3,8 @@ import "./globals.css";
 import { ReactLenis } from "@/components/ReactLenis";
 import Navbar from "@/components/Navbar";
 import Analytics from "./analytics";
+import { Suspense } from "react";
+
 import Script from "next/script";
 
 const outfit = Outfit({
@@ -45,7 +47,9 @@ export default function RootLayout({ children }) {
             touchMultiplier: 0.8,
           }}
         >
-          <Analytics />
+          <Suspense fallback={null}>
+            <Analytics />
+          </Suspense>
           {children}
         </ReactLenis>
       </body>
