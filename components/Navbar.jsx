@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import Magnetic from "./Magnetic";
 
 export default function Navbar() {
     const [isHovered, setIsHovered] = useState(false);
@@ -162,9 +163,9 @@ export default function Navbar() {
                     </Link>
 
                     <div className="flex gap-8 absolute left-1/2 -translate-x-1/2">
-                        <Link href="#work" className="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">Work</Link>
-                        <Link href="#services" className="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">Services</Link>
-                        <Link href="#about" className="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">About</Link>
+                        <Magnetic><Link href="#work" className="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors block p-2">Work</Link></Magnetic>
+                        <Magnetic><Link href="#services" className="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors block p-2">Services</Link></Magnetic>
+                        <Magnetic><Link href="#about" className="text-zinc-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors block p-2">About</Link></Magnetic>
                     </div>
 
                     <Link href="#contact" className="bg-white text-black text-[10px] font-bold px-5 py-2 rounded-full hover:bg-zinc-200 transition-colors">

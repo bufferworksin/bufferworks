@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Magnetic from "./Magnetic";
 
 export default function Contact() {
     const containerRef = useRef(null);
@@ -29,9 +30,11 @@ export default function Contact() {
             <p className="contact-anim text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto">
                 Let's build something extraordinary together. Reach out to us for a consultation.
             </p>
-            <a href="mailto:info@bufferworks.in" className="contact-anim inline-block bg-white text-black text-lg font-semibold py-4 px-10 rounded-full hover:scale-105 transition-transform duration-300">
-                Get in Touch
-            </a>
+            <Magnetic>
+                <a href="mailto:info@bufferworks.in" className="contact-anim inline-block bg-white text-black text-lg font-semibold py-4 px-10 rounded-full hover:scale-105 transition-transform duration-300">
+                    Get in Touch
+                </a>
+            </Magnetic>
         </section>
     );
 }

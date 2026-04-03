@@ -79,6 +79,19 @@ export default function Work() {
                 });
             });
 
+            // Image parallax
+            gsap.utils.toArray('.work-image-parallax').forEach((img) => {
+                gsap.to(img, {
+                    yPercent: 15,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true,
+                    }
+                });
+            });
 
         }, sectionRef);
 
@@ -127,7 +140,7 @@ export default function Work() {
                                         src={p.image}
                                         alt={p.title}
                                         fill
-                                        className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                                        className="work-image-parallax object-cover transform scale-[1.15] group-hover:scale-[1.2] transition-transform duration-700 ease-out origin-top"
                                     />
                                     <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono border border-white/10 z-20">
                                         {p.year}

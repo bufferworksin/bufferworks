@@ -19,6 +19,18 @@ export default function About() {
                 duration: 1.2,
                 ease: "power3.out",
             });
+
+            // Parallax effect on the entire right column description
+            gsap.to(".about-desc", {
+                y: -100,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                }
+            });
         }, containerRef);
         return () => ctx.revert();
     }, []);
@@ -30,7 +42,7 @@ export default function About() {
                     We craft digital <span className="text-zinc-500">experiences</span> that define the future.
                 </h2>
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 about-desc">
                 <p className="text-zinc-400 text-lg md:text-xl leading-relaxed max-w-lg">
                     Bufferworks is a next-generation tech agency. We blend cutting-edge technology with high-end design to build software that not only works flawlessly but looks stunning. From web apps to immersive 3D experiences, we push the boundaries of what's possible on the web.
                 </p>
