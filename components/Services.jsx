@@ -43,22 +43,7 @@ export default function Services() {
                 }
             );
 
-            // Resistance/Pinning Effect
-            ScrollTrigger.create({
-                trigger: sectionRef.current,
-                start: "top -2%", // Earlier resistance
-                end: "+=400", // Distance of resistance
-                pin: true,
-                pinSpacing: true,
-                anticipatePin: 1,
-                // Snap to the pinned position (resistance point) smoothly
-                snap: {
-                    snapTo: 0,
-                    duration: { min: 0.1, max: 0.6 },
-                    ease: "power2.out",
-                    delay: 0
-                }
-            });
+
         }, sectionRef);
 
         return () => ctx.revert();
@@ -68,7 +53,7 @@ export default function Services() {
         { title: "Web Applications", desc: "Scalable, high-performance web apps built with modern frameworks.", icon: "💻", gradient: "from-blue-500 to-cyan-500" },
         { title: "CRM Systems", desc: "Custom Customer Relationship Management solutions to streamline business.", icon: "📊", gradient: "from-emerald-500 to-green-500" },
         { title: "Mobile Apps", desc: "Native and cross-platform mobile experiences for iOS and Android.", icon: "📱", gradient: "from-purple-500 to-pink-500" },
-        { title: "Machine Learning", desc: "Data-driven models that predict trends and automate decision making.", icon: "🧠", gradient: "from-orange-500 to-red-500" },
+        { title: "Digital Marketing", desc: "Strategic online campaigns to increase brand visibility and drive conversions.", icon: "📈", gradient: "from-orange-500 to-red-500" },
         { title: "AI Agents", desc: "Intelligent autonomous agents to handle complex workflows.", icon: "🤖", gradient: "from-indigo-500 to-violet-500" },
         { title: "Video Editing", desc: "Professional post-production and visual storytelling.", icon: "🎬", gradient: "from-rose-500 to-pink-500" },
         { title: "Content Writing", desc: "Compelling narratives and copy that drives engagement.", icon: "✍️", gradient: "from-amber-400 to-orange-500" },
