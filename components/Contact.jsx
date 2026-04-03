@@ -46,17 +46,7 @@ export default function Contact() {
         setIsSubmitting(true);
 
         // --- API KEY CONFIGURATION ---
-        // Go to https://web3forms.com/ to get your free access key and paste it below
         const accessKey = "fde6d541-5014-4095-89f2-38803f0ab77d";
-
-        // Simulation mode if key is not configured
-        if (accessKey === "fde6d541-5014-4095-89f2-38803f0ab77d") {
-            setTimeout(() => {
-                setIsSubmitting(false);
-                setIsSuccess(true);
-            }, 1500);
-            return;
-        }
 
         // Production submission behavior
         const formData = new FormData(event.target);
@@ -109,6 +99,10 @@ export default function Contact() {
 
                         {/* The Form */}
                         <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+                            {/* Hidden Web3Forms configurations */}
+                            <input type="hidden" name="subject" value="🚀 New Project Inquiry via Bufferworks Website" />
+                            <input type="hidden" name="from_name" value="Bufferworks Leads" />
+
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className="text-xs uppercase tracking-widest text-zinc-500 font-bold ml-2">Name</label>
                                 <input
@@ -129,6 +123,17 @@ export default function Contact() {
                                     id="email"
                                     required
                                     placeholder="john@company.com"
+                                    className="bg-zinc-900/50 border border-white/5 rounded-2xl px-6 py-4 text-white placeholder:text-zinc-700 outline-none focus:bg-zinc-900 focus:border-blue-500/50 transition-colors"
+                                />
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                                <label htmlFor="phone" className="text-xs uppercase tracking-widest text-zinc-500 font-bold ml-2">Mobile Number <span className="text-zinc-700 normal-case">(Optional)</span></label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    id="phone"
+                                    placeholder="+91 90000-00000"
                                     className="bg-zinc-900/50 border border-white/5 rounded-2xl px-6 py-4 text-white placeholder:text-zinc-700 outline-none focus:bg-zinc-900 focus:border-blue-500/50 transition-colors"
                                 />
                             </div>

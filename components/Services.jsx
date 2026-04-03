@@ -145,18 +145,55 @@ export default function Services() {
                 });
             });
 
-            // Mobile logic
+            // Mobile logic: Horizontal Deal Stack
             mm.add("(max-width: 767px)", () => {
-                gsap.from(".mobile-service-anim", {
+                const cards = gsap.utils.toArray(".mobile-service-anim");
+
+                // Set initial states for overlapping layout
+                gsap.set(cards[0], { x: "0%", scale: 1, opacity: 1 });
+                cards.slice(1).forEach((card) => {
+                    gsap.set(card, { x: "90%", scale: 1, opacity: 1 }); // Peeking from the right
+                });
+
+                // Master Timeline Pinned
+                const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: "top 80%",
-                    },
-                    y: 50,
+                        start: "top top",
+                        end: () => `+=${window.innerHeight * 4}`, // 4 screens of scrolling for smooth pacing
+                        pin: true,
+                        scrub: 1,
+                    }
+                });
+
+                // Title Fades out immediately
+                tl.to(".services-title-wrapper", {
+                    y: -50,
                     opacity: 0,
-                    stagger: 0.1,
-                    duration: 0.8,
-                    ease: "power3.out"
+                    duration: 0.5,
+                    ease: "power2.in"
+                }, 0);
+
+                // Iterate overlaps
+                cards.forEach((card, index) => {
+                    if (index === 0) return; // First card is already static
+                    
+                    const label = `stagger${index}`;
+
+                    // Current card slides in over previous
+                    tl.to(card, {
+                        x: "0%", 
+                        duration: 1,
+                        ease: "power2.inOut"
+                    }, label);
+
+                    // Optional: previous card slightly shrinks and dims beneath it
+                    tl.to(cards[index - 1], {
+                        scale: 0.95,
+                        opacity: 0.5,
+                        duration: 1,
+                        ease: "power2.inOut"
+                    }, label);
                 });
             });
 
@@ -171,7 +208,7 @@ export default function Services() {
             
             <div ref={containerRef} className="min-h-[100svh] relative flex flex-col justify-center py-20 md:py-16">
                 
-                <div className="services-title-wrapper w-full px-6 md:px-[10vw] mb-12 md:mb-16 shrink-0 z-20">
+                <div className="services-title-wrapper w-full px-6 md:px-[10vw] mb-12 md:mb-16 md:shrink-0 z-20">
                     <h2 className="text-5xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 inline-block pb-2 -ml-1">
                         Our Services
                     </h2>
@@ -183,10 +220,16 @@ export default function Services() {
                 <div className="w-full flex items-center z-10 relative">
                     <div 
                         ref={trackRef} 
-                        className="flex flex-col md:flex-row gap-8 md:gap-16 px-6 md:px-[10vw] pb-8 md:pb-0 w-full md:w-max"
+                        className="flex flex-col md:flex-row gap-0 md:gap-16 px-0 md:px-[10vw] pb-8 md:pb-0 w-full md:w-max relative"
                     >
                         {services.map((s, i) => (
-                            <div key={i} className="mobile-service-anim origin-bottom">
+                            <div 
+                                key={i} 
+                                className={`mobile-service-anim flex justify-center origin-center w-full md:w-auto shadow-2xl ${
+                                    i === 0 ? 'relative' : 'absolute md:relative top-0 md:top-auto left-0 md:left-auto md:w-auto'
+                                }`}
+                                style={{ zIndex: i + 10 }}
+                            >
                                 <ServiceCard s={s} />
                             </div>
                         ))}
